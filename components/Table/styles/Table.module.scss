@@ -1,0 +1,19 @@
+@import './mixins.scss';
+
+.tableContainer {
+    font-size: small;
+    table {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+    tr {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        td {
+            padding: 0.5rem;
+        }
+    }
+}
