@@ -2,23 +2,8 @@ import React, { useState } from 'react'
 import styles from '../styles/Table.module.scss'
 
 const columns = ["Item", "OS", "EV-EX"]
-const rows = [
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-]
 
-const Table = () => {
-    const [data, setData] = useState(rows)
+const Table = ({ data }: any) => {
 
     return (
         <div className={styles.tableContainer}>
@@ -27,7 +12,7 @@ const Table = () => {
                     {columns.map(item => <th>{item}</th>)}
                 </tr>
                 {data.map((item, idx) => (
-                    <tr>
+                    <tr key={idx}>
                         <td>{idx + 1}</td>
                         <td>{item.os}</td>
                         <td>{item['ev-ex']}</td>

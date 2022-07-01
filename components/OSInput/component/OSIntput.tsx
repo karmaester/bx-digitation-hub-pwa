@@ -10,12 +10,13 @@ type Inputs = {
     osclient: string,
 };
 
-const OSIntput = () => {
+const OSIntput = ({ setOsData, osDetails, setShouldAddItem }: any) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onOSSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data);
+        setOsData(data);
     }
-    const onEventSubmit: SubmitHandler<Inputs> = data => console.log(data);
+    const onEventSubmit: SubmitHandler<Inputs> = () => setShouldAddItem(true);
 
     // console.log(watch("oscode")) 
 
@@ -45,9 +46,9 @@ const OSIntput = () => {
             <form className={styles.detailsForm} onSubmit={handleSubmit(onEventSubmit)}>
                 <div className={styles.inlineForm}>
                     <label htmlFor="ospieces">Pieces in OS</label>
-                    <input {...register("ospieces")} />
+                    <input disabled value={osDetails.osPieces} {...register("ospieces")} />
                     <label htmlFor="osclient">Client</label>
-                    <input {...register("osclient")} />
+                    <input disabled value={osDetails.osClient} {...register("osclient")} />
                 </div>
 
                 <input type="submit" value="Save event" />
