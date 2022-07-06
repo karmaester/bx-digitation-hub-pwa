@@ -2,23 +2,8 @@ import React, { useEffect, useState } from 'react'
 import OSIntput from '../components/OSInput/component/OSIntput'
 import Table from '../components/Table/component/Table'
 
-const rows = [
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-    {
-        os: "13412341",
-        "ev-ex": "IC",
-    },
-]
-
 const MainForm = () => {
-    const [tableData, setTableData] = useState(rows)
+    const [tableData, setTableData] = useState([])
     const [osData, setOsData] = useState({})
     const [shouldAddItem, setShouldAddItem] = useState(false)
     const [osDetails, setOsDetails] = useState({
@@ -58,15 +43,17 @@ const MainForm = () => {
                 ]
             }
             fetch("http://localhost:3001/service-orders", {
-                method: 'POST', // or 'PUT'
-                body: JSON.stringify(data), // data can be `string` or {object}!
+                method: 'POST',
+                body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }).then(res => res.json())
                 .catch(error => console.error('Error:', error))
                 .then(response => console.log('Success:', response));
-            setTableData([...tableData, { os: osData?.oscode, "ev-ex": "IC" }])
+            const newArr = [...tableData]
+            newArr.push({ os: osData?.oscode, "ev-ex": "IC" })
+            setTableData(newArr)
             setShouldAddItem(false)
         }
     }, [shouldAddItem])
