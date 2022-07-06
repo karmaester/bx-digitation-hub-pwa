@@ -1,15 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import OSIntput from '../components/OSInput/component/OSIntput'
-import Table from '../components/Table/component/Table'
+import OSIntput from '@components/OSInput/component/OSIntput'
+import Table from '@components/Table/component/Table'
+const rows = [
+    {
+        os: "13412341",
+        "ev-ex": "IC",
+    },
+    {
+        os: "13412341",
+        "ev-ex": "IC",
+    },
+    {
+        os: "13412341",
+        "ev-ex": "IC",
+    },
+]
 
 const MainForm = () => {
-    const [tableData, setTableData] = useState([])
+    const [tableData, setTableData] = useState(rows)
     const [osData, setOsData] = useState({})
     const [shouldAddItem, setShouldAddItem] = useState(false)
     const [osDetails, setOsDetails] = useState({
         osPieces: "",
         osClient: ""
     })
+
+    const temp = 0;
 
     useEffect(() => {
         if (osData.oscode) {
@@ -43,20 +59,19 @@ const MainForm = () => {
                 ]
             }
             fetch("http://localhost:3001/service-orders", {
-                method: 'POST',
-                body: JSON.stringify(data),
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(data), // data can be `string` or {object}!
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }).then(res => res.json())
                 .catch(error => console.error('Error:', error))
                 .then(response => console.log('Success:', response));
-            const newArr = [...tableData]
-            newArr.push({ os: osData?.oscode, "ev-ex": "IC" })
-            setTableData(newArr)
+            setTableData([...tableData, { os: osData?.oscode, "ev-ex": "IC" }])
             setShouldAddItem(false)
         }
-    }, [shouldAddItem])
+    }, [shouldAddItem, osData?.oscode, tableData])
+
 
     return (
         <>
