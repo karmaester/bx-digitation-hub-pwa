@@ -10,7 +10,7 @@ env: # environment variables (available in any part of the action)
   NODE_VERSION: 16
  
 jobs: # list of things to do
-  linting:
+  actions:
     name: Actions # job name (unique id)
     runs-on: ubuntu-latest # on which machine to run
     steps: # list of steps
@@ -29,4 +29,5 @@ jobs: # list of things to do
         uses: oke-py/npm-audit-action@v2.2.0
  
       - name: Code Linting
-        run: npm run lint
+        run: npm run test:lint
+        
