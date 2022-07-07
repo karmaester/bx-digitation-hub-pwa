@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import styles from '../styles/OSInput.module.scss'
+import { useSelector, useDispatch } from 'react-redux';
+import styles from '../styles/OSInput.module.scss';
+import { setOsData } from 'redux/slice';
 
 type Inputs = {
     event: string,
@@ -10,12 +12,15 @@ type Inputs = {
     osclient: string,
 };
 
-const OSIntput = ({ setOsData, osDetails, setShouldAddItem }: any) => {
+const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
+    const dispatch = useDispatch();
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onOSSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data);
-        setOsData(data);
-    }
+        dispatch(setOsData({
+            oscode: data.oscode,
+            evex: data.event
+        }));    }
     const onEventSubmit: SubmitHandler<Inputs> = () => setShouldAddItem(true);
 
     // console.log(watch("oscode")) 
