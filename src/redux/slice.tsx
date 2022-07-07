@@ -6,29 +6,36 @@ const rows = [
     'ev-ex': 'IC',
   },
   {
-    os: '13412341',
+    os: '13412342',
     'ev-ex': 'IC',
   },
   {
-    os: '13412341',
+    os: '13412343',
     'ev-ex': 'IC',
   },
 ];
 
-export const counterSlice = createSlice({
-  name: 'MainForm',
+export const appSlice = createSlice({
+  name: 'app',
   initialState: {
     tableData: rows,
-    osData: {},
-    shouldAddItem: false,
+    osData: {
+      oscode: ''
+    },
     osDetails: {
       osPieces: '',
       osClient: '',
     },
   },
   reducers: {
+    setTableData: (state, action) => {
+      state.tableData.push(action.payload)
+    },
+    setOsData: (state, action) => {
+      state.osData = action.payload
+    },
     setOsDetails: (state, action) => {
-      state.osData = {
+      state.osDetails = {
         osPieces: action.payload.pieces,
         osClient: action.payload.client
       }
@@ -36,6 +43,6 @@ export const counterSlice = createSlice({
   }
 });
 
-export const { setOsDetails } = counterSlice.actions;
+export const { setTableData, setOsData, setOsDetails } = appSlice.actions;
 
-export default counterSlice.reducer;
+export default appSlice.reducer;
