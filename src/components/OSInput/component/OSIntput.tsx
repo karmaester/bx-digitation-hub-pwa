@@ -19,7 +19,7 @@ const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
         console.log(data);
         dispatch(setOsData({
             oscode: data.oscode,
-            evex: data.event
+            'ev-ex': data.event
         }));    }
     const onEventSubmit: SubmitHandler<Inputs> = () => setShouldAddItem(true);
 

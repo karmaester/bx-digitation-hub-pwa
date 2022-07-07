@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppStateT, TableDataRowT, OsDataT, OsDetailsT } from 'redux/types';
 
-const rows = [
+const tableData: TableDataRowT[] = [
   {
     os: '13412341',
     'ev-ex': 'IC',
@@ -15,30 +16,29 @@ const rows = [
   },
 ];
 
+const initialState: AppStateT = {
+  tableData,
+  osData: {
+    oscode: ''
+  },
+  osDetails: {
+    osPieces: '',
+    osClient: '',
+  },
+};
+
 export const appSlice = createSlice({
   name: 'app',
-  initialState: {
-    tableData: rows,
-    osData: {
-      oscode: ''
-    },
-    osDetails: {
-      osPieces: '',
-      osClient: '',
-    },
-  },
+  initialState,
   reducers: {
-    setTableData: (state, action) => {
+    setTableData: (state, action: PayloadAction<TableDataRowT>) => {
       state.tableData.push(action.payload)
     },
-    setOsData: (state, action) => {
+    setOsData: (state, action: PayloadAction<OsDataT>) => {
       state.osData = action.payload
     },
-    setOsDetails: (state, action) => {
-      state.osDetails = {
-        osPieces: action.payload.pieces,
-        osClient: action.payload.client
-      }
+    setOsDetails: (state, action: PayloadAction<OsDetailsT>) => {
+      state.osDetails = action.payload
     }
   }
 });

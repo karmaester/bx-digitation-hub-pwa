@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import OSIntput from '@components/OSInput/component/OSIntput';
 import Table from '@components/Table/component/Table';
 import { selectOsData, selectOsDetails, selectTableData } from '@redux/selectors';
 import { setOsDetails, setTableData } from 'redux/slice';
 
 const MainForm = () => {
-  const dispatch = useDispatch();
-  const tableData = useSelector(selectTableData);
-  const osData = useSelector(selectOsData);
-  const osDetails = useSelector(selectOsDetails);
+  const dispatch = useAppDispatch();
+  const tableData = useAppSelector(selectTableData);
+  const osData = useAppSelector(selectOsData);
+  const osDetails = useAppSelector(selectOsDetails);
   const [shouldAddItem, setShouldAddItem] = useState(false);
   const temp = 0;
 
@@ -54,7 +54,7 @@ const MainForm = () => {
         .then((res) => res.json())
         .catch((error) => console.error('Error:', error))
         .then((response) => console.log('Success:', response));
-      dispatch(setTableData({ os: osData.oscode, 'ev-ex': osData.evex }));
+      dispatch(setTableData({ os: osData.oscode, 'ev-ex': osData['ev-ex'] }));
       setShouldAddItem(false);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,7 +63,6 @@ const MainForm = () => {
   return (
     <>
       <OSIntput
-        setOsData={() => null}
         osDetails={osDetails}
         setShouldAddItem={setShouldAddItem}
       />

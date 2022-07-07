@@ -2,8 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  pieces: string,
-  client: string
+  osPieces: string,
+  osClient: string
 }
 
 export default function handler(
@@ -12,7 +12,7 @@ export default function handler(
 ) {
   console.log({ query: req.query })
   res.status(200).json({
-    pieces: '1',
-    client: 'Test Client'
+    osPieces: '1',
+    osClient: 'Test Client'
   })
 }
