@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setTableData, setOsDetails } from 'redux/slice';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import OSIntput from '@components/OSInput/component/OSIntput';
 import Table from '@components/Table/component/Table';
-const rows = [
-  {
-    os: '13412341',
-    'ev-ex': 'IC',
-  },
-  {
-    os: '13412341',
-    'ev-ex': 'IC',
-  },
-  {
-    os: '13412341',
-    'ev-ex': 'IC',
-  },
-];
+import { selectOsData, selectOsDetails, selectTableData } from '@redux/selectors';
+import { setOsDetails, setTableData } from 'redux/slice';
 
 const MainForm = () => {
   const dispatch = useDispatch();
-  const tableData = useSelector((state: any) => state.app.tableData);
-  const osData = useSelector((state: any) => state.app.osData);
-  const osDetails = useSelector((state: any) => state.app.osDetails);
+  const tableData = useSelector(selectTableData);
+  const osData = useSelector(selectOsData);
+  const osDetails = useSelector(selectOsDetails);
   const [shouldAddItem, setShouldAddItem] = useState(false);
   const temp = 0;
 
