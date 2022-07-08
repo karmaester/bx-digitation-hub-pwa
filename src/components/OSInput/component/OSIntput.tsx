@@ -1,6 +1,9 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import styles from '../styles/OSInput.module.scss'
+import styles from '../styles/OSInput.module.scss';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { selectOsDetailsStatus, selectTableStatus} from '@redux/selectors';
+import { setOsData } from '@redux/slice';
 
 type Inputs = {
     event: string,
@@ -10,12 +13,17 @@ type Inputs = {
     osclient: string,
 };
 
-const OSIntput = ({ setOsData, osDetails, setShouldAddItem }: any) => {
+const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
+    const dispatch = useAppDispatch();
+    const osDetailsStatus = useAppSelector(selectOsDetailsStatus);
+    const tableStatus = useAppSelector(selectTableStatus);
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onOSSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data);
-        setOsData(data);
-    }
+        dispatch(setOsData({
+            oscode: data.oscode,
+            'ev-ex': data.event
+        }));    }
     const onEventSubmit: SubmitHandler<Inputs> = () => setShouldAddItem(true);
 
     // console.log(watch("oscode")) 
@@ -40,7 +48,7 @@ const OSIntput = ({ setOsData, osDetails, setShouldAddItem }: any) => {
                     <input {...register("oscode")} />
                 </div>
 
-                <input type="submit" value="Get OS details" />
+                <input type="submit" value={`${osDetailsStatus === 'loading' ? '...' : 'Get OS details'}`} />
             </form>
 
             <form className={styles.detailsForm} onSubmit={handleSubmit(onEventSubmit)}>
@@ -51,7 +59,7 @@ const OSIntput = ({ setOsData, osDetails, setShouldAddItem }: any) => {
                     <input disabled value={osDetails.osClient} {...register("osclient")} />
                 </div>
 
-                <input type="submit" value="Save event" />
+                <input type="submit" value={`${tableStatus === 'loading' ? '...' : 'Save event'}`} />
             </form>
         </div>
     );

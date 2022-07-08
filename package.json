@@ -10,11 +10,13 @@
     "test:lint": "eslint --ext .tsx --ext .ts src/"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "next": "12.2.0",
     "next-pwa": "^5.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.33.0",
+    "react-redux": "^8.0.2",
     "sass": "^1.53.0"
   },
   "devDependencies": {
