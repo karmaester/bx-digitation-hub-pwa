@@ -1,8 +1,9 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/OSInput.module.scss';
-import { setOsData } from 'redux/slice';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { selectOsDetailsStatus, selectTableStatus} from '@redux/selectors';
+import { setOsData } from '@redux/slice';
 
 type Inputs = {
     event: string,
@@ -13,7 +14,9 @@ type Inputs = {
 };
 
 const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+    const osDetailsStatus = useAppSelector(selectOsDetailsStatus);
+    const tableStatus = useAppSelector(selectTableStatus);
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onOSSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data);
@@ -45,7 +48,7 @@ const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
                     <input {...register("oscode")} />
                 </div>
 
-                <input type="submit" value="Get OS details" />
+                <input type="submit" value={`${osDetailsStatus === 'loading' ? '...' : 'Get OS details'}`} />
             </form>
 
             <form className={styles.detailsForm} onSubmit={handleSubmit(onEventSubmit)}>
@@ -56,7 +59,7 @@ const OSIntput = ({ osDetails, setShouldAddItem }: any) => {
                     <input disabled value={osDetails.osClient} {...register("osclient")} />
                 </div>
 
-                <input type="submit" value="Save event" />
+                <input type="submit" value={`${tableStatus === 'loading' ? '...' : 'Save event'}`} />
             </form>
         </div>
     );

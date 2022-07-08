@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import OSIntput from '@components/OSInput/component/OSIntput';
 import Table from '@components/Table/component/Table';
 import { selectOsData, selectOsDetails, selectTableData } from '@redux/selectors';
-import { setOsDetails, setTableData } from 'redux/slice';
+import { setOsDetails, setTableData } from '@redux/slice';
+import { fetchOsDetails, fetchSaveData } from '@redux/thunks';
 
 const MainForm = () => {
   const dispatch = useAppDispatch();
@@ -15,16 +16,8 @@ const MainForm = () => {
 
   useEffect(() => {
     console.log({ osData });
-    if (osData?.oscode) {
-      fetch(`http://localhost:3000/api/service-orders/${osData.oscode}`)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          dispatch(setOsDetails(data));
-        });
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [osData]);
+    dispatch(fetchOsDetails(osData));
+  }, [osData, dispatch]);
 
   useEffect(() => {
     if (shouldAddItem === true) {
@@ -44,17 +37,7 @@ const MainForm = () => {
           },
         ]
       };
-      fetch('http://localhost:3000/api/service-orders', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .catch((error) => console.error('Error:', error))
-        .then((response) => console.log('Success:', response));
-      dispatch(setTableData({ os: osData.oscode, 'ev-ex': osData['ev-ex'] }));
+      dispatch(fetchSaveData(data));
       setShouldAddItem(false);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

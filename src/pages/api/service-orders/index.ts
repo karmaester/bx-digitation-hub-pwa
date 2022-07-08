@@ -1,10 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-  osPieces: string,
-  osClient: string
-}
+type Data = string;
 
 export default function handler(
   req: NextApiRequest,
@@ -12,9 +9,6 @@ export default function handler(
 ) {
   console.log({ query: req.query })
   setTimeout(() => {
-    res.status(200).json({
-      osPieces: '1',
-      osClient: 'Test Client'
-    })
+    res.status(200).json('OK');
   }, 500);
 }

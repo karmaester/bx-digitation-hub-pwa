@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppStateT, TableDataRowT, OsDataT, OsDetailsT } from 'redux/types';
+import { fetchOsDetails, fetchSaveData } from '@redux/thunks';
+import { AppStateT, TableDataRowT, OsDataT, OsDetailsT } from '@redux/types';
 
-const tableData: TableDataRowT[] = [
+const data: TableDataRowT[] = [
   {
     os: '13412341',
     'ev-ex': 'IC',
@@ -17,14 +18,23 @@ const tableData: TableDataRowT[] = [
 ];
 
 const initialState: AppStateT = {
-  tableData,
+  tableData: {
+    data,
+    status: 'idle',
+    error: null
+  },
   osData: {
-    oscode: ''
+    oscode: '',
+    'ev-ex': ''
   },
   osDetails: {
-    osPieces: '',
-    osClient: '',
-  },
+    data: {
+      osPieces: '',
+      osClient: ''
+    },
+    status: 'idle',
+    error: null
+  }
 };
 
 export const appSlice = createSlice({
@@ -32,14 +42,39 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     setTableData: (state, action: PayloadAction<TableDataRowT>) => {
-      state.tableData.push(action.payload)
+      state.tableData.data.push(action.payload)
     },
     setOsData: (state, action: PayloadAction<OsDataT>) => {
       state.osData = action.payload
     },
     setOsDetails: (state, action: PayloadAction<OsDetailsT>) => {
-      state.osDetails = action.payload
+      state.osDetails.data = action.payload
     }
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchOsDetails.pending, (state) => {
+        state.osDetails.status = 'loading';
+      })
+      .addCase(fetchOsDetails.fulfilled, (state, action) => {
+        state.osDetails.status = 'succeded';
+        state.osDetails.data = action.payload;
+      })
+      .addCase(fetchOsDetails.rejected, (state, action) => {
+        state.osDetails.status = 'failed';
+        state.osDetails.error = action.error.message as string;
+      })
+      .addCase(fetchSaveData.pending, (state) => {
+        state.tableData.status = 'loading';
+      })
+      .addCase(fetchSaveData.fulfilled, (state, action) => {
+        state.tableData.status = 'succeded';
+        state.tableData.data.push({ os: state.osData.oscode, 'ev-ex': state.osData['ev-ex'] });
+      })
+      .addCase(fetchSaveData.rejected, (state, action) => {
+        state.tableData.status = 'failed';
+        state.tableData.error = action.error.message as string;
+      });
   }
 });
 
