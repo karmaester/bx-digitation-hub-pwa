@@ -5,7 +5,7 @@ export default function Index() {
   return <MainForm />
 }
 
-Index.getLayout = function getLayout(page) {
+Index.getLayout = function getLayout(page: JSX.Element) {
   return (
     <Layout>
       {page}

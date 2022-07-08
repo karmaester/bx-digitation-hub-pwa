@@ -30,4 +30,7 @@ jobs: # list of things to do
  
       - name: Code Linting
         run: npm run test:lint
+
+      - name: Docker build
+        run: docker-compose up --build --force-recreate
         
