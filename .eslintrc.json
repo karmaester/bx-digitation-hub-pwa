@@ -1,3 +1,58 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-expressions": [
+      2,
+      {
+        "allowTernary": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@src/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@components/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@context/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@util/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@atoms/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@molecules/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@svg/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@images/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@documents/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@redux/**",
+            "group": "internal"
+          }
+        ]
+      }
+    ]
+  }
 }
