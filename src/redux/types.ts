@@ -4,6 +4,7 @@ export type RootStateT = ReturnType<typeof store.getState>;
 export type AppDispatchT = typeof store.dispatch;
 
 export type AppStateT = {
+  checkpoints: any[];
   tableData: {
     data: TableDataRowT[];
     status: StatusT;
