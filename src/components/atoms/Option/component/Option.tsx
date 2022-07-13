@@ -1,9 +1,10 @@
 import { FC, HTMLProps, ReactNode } from 'react';
 
 export interface OptionPropsT extends HTMLProps<HTMLOptionElement> {
-  children: ReactNode;
+  value: string;
+  name: string;
 };
 
-export const Option: FC<OptionPropsT> = ({ children, ...rest }) => {
-  return <option {...rest}>{children}</option>;
+export const Option: FC<OptionPropsT> = ({ value, name, ...rest }) => {
+  return <option value={value} {...rest}>{name}</option>;
 };

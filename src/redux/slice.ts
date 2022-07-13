@@ -19,9 +19,9 @@ const data: TableDataRowT[] = [
 
 const initialState: AppStateT = {
   checkpoints: [
-    { value: 'IC', children: 'IC' },
-    { value: 'AV', children: 'AV' },
-    { value: 'EX', children: 'EX' },
+    { value: 'IC', name: 'IC' },
+    { value: 'AV', name: 'AV' },
+    { value: 'EX', name: 'EX' },
   ],
   tableData: {
     data,
