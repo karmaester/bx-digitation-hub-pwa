@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import Table from '@components/molecules/Table/component/Table';
 import { selectOsData, selectTableData } from '@redux/selectors';
 import { fetchOsDetails, fetchSaveData } from '@redux/thunks';

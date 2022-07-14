@@ -1,1 +1,2 @@
-export { default as Select} from './component/Select';
+export { default } from './container/Select';
+export type { SelectPropsT } from './component/Select';

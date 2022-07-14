@@ -1,22 +1,20 @@
 import styles from '../styles/OSDetails.module.scss';
-import { Label } from '@components/atoms/Label';
-import { Input } from '@components/atoms/Input';
+import TextInput from '@components/atoms/TextInput';
 
 export const OSDetails = ({ registers, submitText, onSubmit }: any) => {
-  console.log({register: registers.pieces()})
   return (
     <form className={styles.detailsForm} onSubmit={onSubmit}>
       <div className={styles.inlineForm}>
-        <Label>
+        <label>
           <span>Pieces in OS</span>
-          <Input {...registers.pieces()} />
-        </Label>
-        <Label>
+          <TextInput {...registers.pieces()} />
+        </label>
+        <label>
           <span>Client</span>
-          <Input {...registers.client()} />
-        </Label>
+          <TextInput {...registers.client()} />
+        </label>
       </div>
-      <Input type='submit' value={submitText} />
+      <input type='submit' value={submitText} />
     </form>
   );
 };

@@ -1,2 +1,2 @@
-export * from './container/OSCode';
+export * from './component/OSCode';
 

@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import OSDetailsComponent from '../component/OSDetails';
-import { useAppSelector } from 'hooks/redux';
+import { useAppSelector } from 'redux/hooks';
 import { selectTableStatus, selectOsDetailsData} from '@redux/selectors';
 
 type Inputs = {
