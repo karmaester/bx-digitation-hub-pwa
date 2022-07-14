@@ -8,7 +8,7 @@ type FieldErrorPropsT = {
 const FieldError = ({children}: FieldErrorPropsT) => {
   if (!children) return null;
   return (
-    <p className={styles.fieldError}>{children}</p>
+    <p className={styles.fieldError} data-testid="field-error">{children}</p>
   );
 };
 
