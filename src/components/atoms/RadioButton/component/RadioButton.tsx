@@ -5,7 +5,7 @@ import styles from '../styles/RadioButton.module.scss';
 type RadioButtonT = {
   value: string;
   children: ReactNode;
-} & Omit<UseFormRegisterReturn, 'ref'>;;
+} & Omit<Partial<UseFormRegisterReturn>, 'ref'>;;
 
 const RadioButton = ({children, ...rest}: RadioButtonT, ref: Ref<HTMLInputElement>) => {
   return (
