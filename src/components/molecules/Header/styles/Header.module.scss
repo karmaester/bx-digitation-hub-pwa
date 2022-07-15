@@ -1,0 +1,20 @@
+@import './mixins.scss';
+
+.headerContainer {
+    background-color: $header-bg-color;
+    border-radius: 0px 0px 10px 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px 24px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    .headerLogo{
+        min-width: 52px;
+    }
+    .headerIcons {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}

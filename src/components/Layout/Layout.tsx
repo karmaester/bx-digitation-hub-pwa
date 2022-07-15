@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Header from '../Header/component/Header'
+import Head from 'next/head';
+import Header from '@components/molecules/Header';
 
 export default function Layout({ children }: { children: JSX.Element }) {
 

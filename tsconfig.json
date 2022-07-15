@@ -20,7 +20,7 @@
       "@context/*": ["context/*"],
       "@atoms/*": ["atoms/*"],
       "@molecules/*": ["molecules/*"],
-      "@images/*": ["images/*"],
+      "@images/*": ["../public/images/*"],
       "@documents/*": ["documents/*"],
       "@styles/*": ["styles/*"],
       "@svg/*": ["svg/*"],
