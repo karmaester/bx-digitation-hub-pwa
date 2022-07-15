@@ -1,7 +1,7 @@
-@import './mixins.scss';
+@import '@styles/mixins/colors';
 
 .headerContainer {
-    background-color: $header-bg-color;
+    background-color: $bx-color-blue;
     border-radius: 0px 0px 10px 10px;
     box-sizing: border-box;
     margin: 0;
