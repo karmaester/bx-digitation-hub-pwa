@@ -47,6 +47,7 @@ const MainForm = () => {
         <OSCode />
         <OSDetails setShouldAddItem={setShouldAddItem} />
       </Card>
+      <div style={{height: '2rem'}}></div>
       <Card>
         <Table data={tableData} />
       </Card>

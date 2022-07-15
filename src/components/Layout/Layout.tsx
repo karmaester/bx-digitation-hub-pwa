@@ -13,7 +13,6 @@ export default function Layout({ children }: { children: JSX.Element }) {
             <main>{children}</main>
             <style global jsx>{`
         body {
-            background-color: #fafafa;
           margin: 0;
           font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
       'Arial', sans-serif;
