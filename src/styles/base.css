@@ -1,0 +1,46 @@
+:root {
+  /*
+    COLOR PALETTE
+    https://ui.dev.blue.cl/?path=/story/design-tokens-colors--page
+  */
+  /* Blue */
+  --color-blue: #3363ff;
+  
+  /* Light Blue */
+  --color-lblue: #41B6E6;
+  --color-lblue-day: #eaf8ff;
+
+  /* Grey Scale */
+  --color-black: #000000;
+  --color-black-10: #101010;
+  --color-black-90: #222222;
+  --color-black-total: #212121;
+  --color-gray-one: #333333;
+  --color-gray-press: #4d4d4d;
+  --color-gray-mistery: #666666;
+  --color-gray-play: #808080;
+  --color-gray-time: #b3b3b3;
+  --color-gray-me: #cccccc;
+  --color-gray-you: #e5e5e5;
+  --color-gray-up: #f6f6f6;
+  --color-gray-on: #fbfbfb;
+  --color-white: #ffffff;
+
+  /* Background Colors */
+  --color-bg-body: var(--color-lblue-day);
+
+  /* Elements Colors */
+  --color-link: var(--color-lblue);
+
+
+  /* Fonts */
+  --font-primary: 'Mont', system-ui, -apple-system, 'Segoe UI', Roboto,
+                  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans',
+                  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+                  'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-secondary: 'Lato', system-ui, -apple-system, 'Segoe UI', Roboto,
+                    'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans',
+                    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+                    'Segoe UI Symbol', 'Noto Color Emoji';
+
+}

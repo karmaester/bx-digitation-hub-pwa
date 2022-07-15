@@ -9,7 +9,7 @@
   }
   
   body {
-    background-color: $bx-color-body-bg;
+    background-color: var(--color-bg-body);
     margin: 0;
     font-size: 24px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,

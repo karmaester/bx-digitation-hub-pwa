@@ -6,6 +6,7 @@ import { fetchOsDetails, fetchSaveData } from '@redux/thunks';
 import { OSCode } from '@components/molecules/OSCode';
 import { OSDetails } from '@components/molecules/OSDetails';
 import Card from '@components/atoms/Card';
+import { Breadcrumb } from '@components/molecules/Breadcrumb';
 
 const MainForm = () => {
   const tableData = useAppSelector(selectTableData);
@@ -43,6 +44,7 @@ const MainForm = () => {
 
   return (
     <div style={{padding: '20px'}}>
+      <Breadcrumb/>
       <Card>
         <OSCode />
         <OSDetails setShouldAddItem={setShouldAddItem} />

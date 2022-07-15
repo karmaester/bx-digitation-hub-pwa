@@ -1,7 +1,10 @@
+type BlueLogoPropsT = {
+  width?: number;
+};
 
-const widthHeightProportion = 52/34;
+const widthHeightProportion = 52 / 34;
 
-export const BlueLogo = ({width = 52}: {width?: number}) => {
+export const BlueLogo = ({ width = 52 }: BlueLogoPropsT) => {
   return (
     <svg
       width={width}

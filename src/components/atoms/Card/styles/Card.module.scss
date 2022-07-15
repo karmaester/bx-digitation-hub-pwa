@@ -1,9 +1,8 @@
 @import '@styles/mixins/shadows.scss';
-@import '@styles/mixins/colors';
 
 .card {
   @include app-shadow-1;
-  background: $bx-color-white;
+  background: var(--color-white);
   margin: 0;
   padding: 16px;
   border-radius: 10px;
