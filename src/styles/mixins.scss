@@ -6,4 +6,13 @@ $terciary-color: #58a6ac;
 $quaternary-color: #4fc1ef;
 $quinary-color: #a5d0cc;
 
-$header-bg-color: #2E59E5;
+$header-bg-color: #2e59e5;
+
+@mixin app-shadow-1 {
+  box-shadow: 0px 2px 4px -2px rgba(24, 39, 75, 0.12),
+    0px 4px 4px -2px rgba(24, 39, 75, 0.08);
+}
+
+@mixin hub-shadow-small {
+  box-shadow: 0px 2px 5px rgba(24, 39, 75, 0.15);
+}

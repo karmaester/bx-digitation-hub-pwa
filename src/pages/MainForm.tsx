@@ -5,6 +5,7 @@ import { selectOsData, selectTableData } from '@redux/selectors';
 import { fetchOsDetails, fetchSaveData } from '@redux/thunks';
 import { OSCode } from '@components/molecules/OSCode';
 import { OSDetails } from '@components/molecules/OSDetails';
+import Card from '@components/atoms/Card';
 
 const MainForm = () => {
   const tableData = useAppSelector(selectTableData);
@@ -14,7 +15,7 @@ const MainForm = () => {
 
   useEffect(() => {
     dispatch(fetchOsDetails(osData));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [osData.oscode, dispatch]);
 
   useEffect(() => {
@@ -41,13 +42,15 @@ const MainForm = () => {
   }, [shouldAddItem, osData?.oscode, dispatch]);
 
   return (
-    <>
-      <div style={{fontSize: 'small'}}>
+    <div style={{padding: '20px'}}>
+      <Card>
         <OSCode />
         <OSDetails setShouldAddItem={setShouldAddItem} />
-      </div>
-      <Table data={tableData} />
-    </>
+      </Card>
+      <Card>
+        <Table data={tableData} />
+      </Card>
+    </div>
   );
 };
 
