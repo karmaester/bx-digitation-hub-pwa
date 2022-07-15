@@ -1,5 +1,6 @@
 .breadcrumb {
   display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px;
   color: var(--color-link);
@@ -8,7 +9,7 @@
     family: var(--font-secondary); 
     style: normal;
     weight: 700;
-    font-size: 12px;
+    size: 12px;
   }
   line-height: 158%;
   letter-spacing: 0.03em;

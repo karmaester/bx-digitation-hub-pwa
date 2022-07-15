@@ -1,0 +1,18 @@
+.loadCounter {
+  align-self: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gray-play);
+  .loadCounterLabel, .loadCounterValue {
+    font: {
+      family: var(--font-secondary);
+      style: normal;
+      weight: 700;
+      size: 12px;
+    }
+    letter-spacing: 0.03em;
+    line-height: 158%;
+  }
+}
