@@ -1,0 +1,24 @@
+@use './accordion' as acc;
+
+.accordionItem {
+  width: 100%;
+  background-color: inherit;
+  border: {
+    left: acc.$border;
+    top: acc.$border;
+    right: acc.$border;
+  }
+  &:first-of-type {
+    border-top: {
+      left-radius: acc.$border-radius;
+      right-radius: acc.$border-radius;
+    }
+  }
+  &:last-of-type {
+    border-bottom: acc.$border;
+    border-bottom: {
+      left-radius: acc.$border-radius;
+      right-radius: acc.$border-radius;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use './accordion' as acc;
+
+.accordionBody {
+  padding: {
+    left: acc.$padding;
+  }
+  transition: padding acc.$transition-duration ease-in-out;
+}
+
+.opened {
+  padding: {
+    top: acc.$padding;
+    bottom: acc.$padding;
+  }
+  border-top: acc.$border;
+  opacity: 1;
+  height:auto;
+  transition: opacity calc(acc.$transition-duration * 0.8) ease-in-out;
+}
+
+.closed {
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+  border-top: 0;
+  height: 0;
+  opacity: 0;
+}

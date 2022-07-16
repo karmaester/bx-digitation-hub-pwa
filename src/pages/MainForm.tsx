@@ -8,6 +8,14 @@ import { OSDetails } from '@components/molecules/OSDetails';
 import Card from '@components/atoms/Card';
 import { Breadcrumb } from '@components/molecules/Breadcrumb';
 import LoadTimeCounter from '@components/atoms/LoadTimeCounter';
+import {
+  Accordion,
+  AccordionBody,
+  AccordionButton,
+  AccordionHeader,
+  AccordionItem,
+} from '@components/atoms/Accordion';
+import { ChevronIcon } from '@components/atoms/icons';
 
 const MainForm = () => {
   const tableData = useAppSelector(selectTableData);
@@ -45,20 +53,59 @@ const MainForm = () => {
 
   const containerFlex: CSSProperties = {
     display: 'flex',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
+    gap: '1rem',
+    padding: '1rem'
   };
+
+  const items = [
+    { title: 'hola 1', body: 'mundo 1' },
+    { title: 'hola 2', body: 'mundo 2' },
+    { title: 'hola 3', body: 'mundo 3' },
+    { title: 'hola 4', body: 'mundo 4' },
+    { title: 'hola 5', body: 'mundo 5' },
+  ];
   return (
-    <div style={{ padding: '20px' }}>
-      <div style={containerFlex}>
+    <div style={containerFlex}>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <Breadcrumb />
         <LoadTimeCounter time='00:00:00.000000' />
       </div>
+
+        <Accordion>
+          {items.map((item: any, i: number) => (
+            <AccordionItem key={i} itemId={i}>
+              <AccordionHeader>
+                <span>{item.title}</span>
+                <AccordionButton>
+                  <ChevronIcon angle={180} />
+                </AccordionButton>
+              </AccordionHeader>
+              <AccordionBody>
+                <span>{item.body}</span>
+              </AccordionBody>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+      <Card>
+        <AccordionItem>
+          <AccordionHeader>
+            <span>Test Item Only</span>
+            <AccordionButton>
+              <ChevronIcon angle={180} />
+            </AccordionButton>
+          </AccordionHeader>
+          <AccordionBody>
+            <span>It is working</span>
+          </AccordionBody>
+        </AccordionItem>
+      </Card>
+
       <Card>
         <OSCode />
         <OSDetails setShouldAddItem={setShouldAddItem} />
       </Card>
-      <div style={{ height: '2rem' }}></div>
       <Card>
         <Table data={tableData} />
       </Card>

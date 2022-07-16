@@ -1,0 +1,6 @@
+@use './accordion' as acc;
+
+.accordion {
+  background-color: var(--bx-color-white);
+  border-radius: acc.$border-radius;
+}

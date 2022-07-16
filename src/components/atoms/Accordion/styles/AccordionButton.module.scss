@@ -1,0 +1,11 @@
+@use './accordion' as acc;
+
+.accordionButton {
+  width: fit-content;
+  display: flex;
+  transition: transform acc.$transition-duration ease-in-out;
+}
+
+.opened {
+  transform: rotate(-180deg);
+}

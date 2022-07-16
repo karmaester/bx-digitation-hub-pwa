@@ -1,0 +1,14 @@
+@use './accordion' as acc;
+
+.accordionHeader {
+  width: inherit;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  padding: acc.$padding;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: inherit;
+}

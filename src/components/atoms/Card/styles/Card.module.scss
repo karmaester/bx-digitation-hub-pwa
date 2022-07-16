@@ -2,7 +2,7 @@
 
 .card {
   @include app-shadow-1;
-  background: var(--color-white);
+  background: var(--bx-color-white);
   margin: 0;
   padding: 16px;
   border-radius: 10px;
