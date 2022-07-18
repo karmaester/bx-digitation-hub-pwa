@@ -1,0 +1,20 @@
+%font {
+  color: var(--bx-color-black);
+  font: {
+    style: normal;
+    weight: 400;
+    size: 0.75rem;
+  }
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+%primaryFont {
+  @extend %font;
+  font-family: var(--bx-font-primary);;
+}
+
+%secondaryFont {
+  @extend %font;
+  font-family: var(--bx-font-secondary);;
+}

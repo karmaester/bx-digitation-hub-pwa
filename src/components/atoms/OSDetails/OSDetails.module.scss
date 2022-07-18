@@ -1,0 +1,19 @@
+@import '@styles/mixins/fonts.scss';
+
+.osDetailsContainer {
+  border-radius: 10px;
+  padding: 1.1em;
+  background-color: #EAEAEB;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  @extend %secondaryFont;
+}
+
+.osDetails {
+  display: flex;
+  gap: 0.5em;
+  span:last-child {
+    font-weight: 900;
+  }
+}

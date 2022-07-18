@@ -15,6 +15,7 @@ import Select from '@components/atoms/Select';
 import FormSelect from '@components/molecules/FormSelect';
 import FormInput from '@components/molecules/FormInput';
 import Button from '@components/atoms/Button/Button';
+import OSDetails from '@components/atoms/OSDetails/OSDetails';
 
 type Inputs = {
   checkpointType: 'ev' | 'ex';
@@ -64,6 +65,9 @@ export const OSCode = (): JSX.Element => {
 
   const checkpointType = selectedCheckpointType === 'ev' ? 'Evento' : 'Excepcion';
 
+  const clientName = 'Shop Mai Chile';
+  const pieces = { count: 1, total: 2};
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onOSSubmit)}>
       <div>
@@ -93,6 +97,7 @@ export const OSCode = (): JSX.Element => {
         </label>
       </div>
       {/* <input type='submit' value={submitText} /> */}
+      <OSDetails clientName={clientName} pieces={pieces}/>
       <div style={{display: 'flex', gap: '1em'}}>
       <Button type="reset" variant='secondary'>Limpiar</Button>
       <Button type="submit" variant='primary'>{submitText}</Button>
