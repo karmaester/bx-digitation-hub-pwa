@@ -16,6 +16,7 @@ import {
   AccordionItem,
 } from '@components/atoms/Accordion';
 import { ChevronIcon } from '@components/atoms/icons';
+import UserInfo from '@components/molecules/UserInfo';
 
 const MainForm = () => {
   const tableData = useAppSelector(selectTableData);
@@ -65,12 +66,25 @@ const MainForm = () => {
     { title: 'hola 4', body: 'mundo 4' },
     { title: 'hola 5', body: 'mundo 5' },
   ];
+
+  const user = {
+    id: 'rmoscoso.cl',
+    base: 'SCL',
+    office: 'SCL7C',
+    warehouse: 'RSCL901',
+    profile: '221 - TEST TI'
+  };
+
   return (
     <div style={containerFlex}>
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <Breadcrumb />
         <LoadTimeCounter time='00:00:00.000000' />
       </div>
+
+      <Card>
+        <UserInfo user={user}/>
+      </Card>
 
         <Accordion>
           {items.map((item: any, i: number) => (
