@@ -1,13 +1,16 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import styles from '../styles/Card.module.scss';
 
 type CardPropsT = {
+  className?: string;
+  style?: CSSProperties;
   children: ReactNode;
 };
 
-const Card = ({children}: CardPropsT) => {
+const Card = ({ className = '', style, children }: CardPropsT) => {
+  const classes = [styles.card, className].filter(Boolean).join(' ');
   return (
-    <div className={styles.card}>
+    <div className={classes} style={style}>
       {children}
     </div>
   );
