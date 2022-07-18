@@ -17,6 +17,7 @@ import {
 } from '@components/atoms/Accordion';
 import { ChevronIcon } from '@components/atoms/icons';
 import UserInfo from '@components/molecules/UserInfo';
+import {SessionOSStats, SessionPiecesStats } from '@components/molecules/DigitizedStats';
 
 const MainForm = () => {
   const tableData = useAppSelector(selectTableData);
@@ -95,10 +96,15 @@ const MainForm = () => {
         <OSDetails setShouldAddItem={setShouldAddItem} />
       </Card>
 
+      <Card style={{display: 'flex', justifyContent: 'space-evenly'}}>
+        <SessionOSStats quantity={1}/>
+        <SessionPiecesStats quantity={2}/>
+      </Card>
+
       <Card>
         <Table data={tableData} />
       </Card>
-      
+
     </div>
   );
 };

@@ -1,0 +1,28 @@
+@import '@styles/mixins/fonts.scss';
+
+.stats {
+  display: flex;
+  gap: 0.5em;
+}
+
+.statsIcon {
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+}
+
+.statsData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & > p:first-child {
+    @extend %primaryFont;
+    font: {
+      weight: 800;
+      size: 18px;
+    }
+  }
+  & > p:last-child {
+    @extend %secondaryFont;
+  }
+}
