@@ -1,9 +1,10 @@
-type ChevronIcopPropsT = {
-  size?: number | string;
-  angle?: number;
-};
+import IconPropsT from './IconPropsT';
 
-export const ChevronIcon = ({ size = '1rem', angle = 0 }: ChevronIcopPropsT) => {
+type ChevronIcopPropsT = {
+  angle?: number;
+} & IconPropsT;
+
+export const ChevronIcon = ({ size = '1em', angle = 0 }: ChevronIcopPropsT) => {
   return (
     <svg
       width={size}
