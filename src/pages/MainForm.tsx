@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import OSIntput from '@components/OSInput/component/OSIntput';
-import Table from '@components/Table/component/Table';
-import { selectOsData, selectOsDetails, selectTableData } from '@redux/selectors';
-import { setOsDetails, setTableData } from '@redux/slice';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import Table from '@components/molecules/Table/component/Table';
+import { selectOsData, selectTableData } from '@redux/selectors';
 import { fetchOsDetails, fetchSaveData } from '@redux/thunks';
+import { OSCode } from '@components/molecules/OSCode';
+import { OSDetails } from '@components/molecules/OSDetails';
 
 const MainForm = () => {
-  const dispatch = useAppDispatch();
   const tableData = useAppSelector(selectTableData);
   const osData = useAppSelector(selectOsData);
-  const osDetails = useAppSelector(selectOsDetails);
   const [shouldAddItem, setShouldAddItem] = useState(false);
-  const temp = 0;
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log({ osData });
     dispatch(fetchOsDetails(osData));
-  }, [osData, dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [osData.oscode, dispatch]);
 
   useEffect(() => {
     if (shouldAddItem === true) {
@@ -33,22 +31,21 @@ const MainForm = () => {
             location: {
               lat: 12.158242,
               long: -162.228897,
-            }
+            },
           },
-        ]
+        ],
       };
       dispatch(fetchSaveData(data));
       setShouldAddItem(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shouldAddItem, osData?.oscode,]);
+  }, [shouldAddItem, osData?.oscode, dispatch]);
 
   return (
     <>
-      <OSIntput
-        osDetails={osDetails}
-        setShouldAddItem={setShouldAddItem}
-      />
+      <div style={{fontSize: 'small'}}>
+        <OSCode />
+        <OSDetails setShouldAddItem={setShouldAddItem} />
+      </div>
       <Table data={tableData} />
     </>
   );

@@ -18,6 +18,11 @@ const data: TableDataRowT[] = [
 ];
 
 const initialState: AppStateT = {
+  checkpoints: [
+    { value: 'IC', name: 'IC' },
+    { value: 'AV', name: 'AV' },
+    { value: 'EX', name: 'EX' },
+  ],
   tableData: {
     data,
     status: 'idle',
