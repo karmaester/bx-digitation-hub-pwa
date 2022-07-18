@@ -1,15 +1,15 @@
 import { Provider } from 'react-redux';
 import store from 'redux/store';
+import Layout from '@components/Layout/Layout';
 import 'styles/base.css';
-import 'styles/global.scss'
+import 'styles/global.scss';
 
 export default function MyApp({ Component, pageProps }: any) {
-  // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout || ((page: JSX.Element) => page)
-
-  return getLayout(
+  return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
-  )
+  );
 }

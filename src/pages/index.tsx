@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Layout from '@components/Layout/Layout';
+
 import avatar from '@images/avatar-senora-patricia.png';
 import Card from '@components/atoms/Card';
 import { HomeStats } from '@components/molecules/Stats';
@@ -66,11 +66,7 @@ export default function Index() {
         <h5 style={{ textAlign: 'center', marginBottom: '1em' }}>¿Qué te gustaría hacer ahora?</h5>
         <HomeMenu items={menuItems} />
       </Card>
-      
+
     </div>
   );
 }
-
-Index.getLayout = function getLayout(page: JSX.Element) {
-  return <Layout>{page}</Layout>;
-};
