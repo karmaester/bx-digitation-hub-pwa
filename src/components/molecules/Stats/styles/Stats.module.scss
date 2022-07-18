@@ -2,16 +2,20 @@
 
 .stats {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   gap: 0.5em;
 }
 
 .statsIcon {
   font-size: 2em;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .statsData {
+  width: 10ch;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,5 +28,6 @@
   }
   & > p:last-child {
     @extend %secondaryFont;
+    font-size: 0.75rem;
   }
 }

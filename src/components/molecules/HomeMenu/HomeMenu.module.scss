@@ -1,0 +1,28 @@
+@import '@styles/mixins/fonts.scss';
+
+.menu {
+  @extend %secondaryFont;
+  font-weight: 900;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-evenly;
+}
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menuItemImage {
+  flex-grow: 1;
+  min-height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuItemLabel {
+  text-align: center;
+}
