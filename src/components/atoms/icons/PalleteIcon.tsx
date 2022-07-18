@@ -1,6 +1,6 @@
 import IconPropsT from './IconPropsT';
 
-const PalleteIcon = ({size= '1em'}: IconPropsT) => {
+export const PalleteIcon = ({size= '1em'}: IconPropsT) => {
   return (
     <svg
       width={size}
@@ -15,5 +15,3 @@ const PalleteIcon = ({size= '1em'}: IconPropsT) => {
     </svg>
   );
 };
-
-export default PalleteIcon;

@@ -5,3 +5,4 @@ export * from './ArrowLeftIcon';
 export * from './ChevronIcon';
 export * from './PalleteIcon';
 export * from './OSIcon';
+export * from './RouteIcon';
