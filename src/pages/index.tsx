@@ -51,7 +51,7 @@ export default function Index() {
       </div>
 
       <div style={flex}>
-        <Image src={avatar} alt='avatar' />
+        <Image src={avatar} alt='avatar' height={50} width={50}/>
         <div>
           <h5>¡Hola Margarita!</h5>
           <p>Este es tu dashboard</p>
