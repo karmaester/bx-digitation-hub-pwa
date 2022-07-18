@@ -86,43 +86,19 @@ const MainForm = () => {
         <UserInfo user={user}/>
       </Card>
 
-        <Accordion>
-          {items.map((item: any, i: number) => (
-            <AccordionItem key={i} itemId={i}>
-              <AccordionHeader>
-                <span>{item.title}</span>
-                <AccordionButton>
-                  <ChevronIcon angle={180} />
-                </AccordionButton>
-              </AccordionHeader>
-              <AccordionBody>
-                <span>{item.body}</span>
-              </AccordionBody>
-            </AccordionItem>
-          ))}
-        </Accordion>
-
-      <Card>
-        <AccordionItem>
-          <AccordionHeader>
-            <span>Test Item Only</span>
-            <AccordionButton>
-              <ChevronIcon angle={180} />
-            </AccordionButton>
-          </AccordionHeader>
-          <AccordionBody>
-            <span>It is working</span>
-          </AccordionBody>
-        </AccordionItem>
-      </Card>
+      <div>
+        <h5 style={{textAlign: 'center'}}>Digitación HUB</h5>
+      </div>
 
       <Card>
         <OSCode />
         <OSDetails setShouldAddItem={setShouldAddItem} />
       </Card>
+
       <Card>
         <Table data={tableData} />
       </Card>
+      
     </div>
   );
 };

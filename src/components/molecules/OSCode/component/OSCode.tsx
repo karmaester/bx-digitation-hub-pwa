@@ -14,6 +14,7 @@ import { setOsData } from '@redux/slice';
 import Select from '@components/atoms/Select';
 import FormSelect from '@components/molecules/FormSelect';
 import FormInput from '@components/molecules/FormInput';
+import Button from '@components/atoms/Button/Button';
 
 type Inputs = {
   checkpointType: 'ev' | 'ex';
@@ -91,7 +92,11 @@ export const OSCode = (): JSX.Element => {
           />
         </label>
       </div>
-      <input type='submit' value={submitText} />
+      {/* <input type='submit' value={submitText} /> */}
+      <div style={{display: 'flex', gap: '1em'}}>
+      <Button type="reset" variant='secondary'>Limpiar</Button>
+      <Button type="submit" variant='primary'>{submitText}</Button>
+      </div>
     </form>
   );
 };

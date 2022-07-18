@@ -121,19 +121,20 @@
   --bx-color-light-express: #00b4db;
   --bx-color-light-dream: #e5f7fb;
 
+  
   /* Elements Colors */
   --bx-body-bg: var(--bx-color-lblue-day);
   --bx-header-bg: var(--bx-color-blue);
   --bx-link: #41B6E6;
 
-  --bx-button-fg: #18191a;
-  --bx-button-hover: #000000;
-  --bx-button-secondary-fg: #f0f0f0;
-  --bx-button-secondary-hover: #ced4da;
-  --bx-button-bg-primary: var(--bx-color-orange);
-  --bx-button-fg-primary: #ffffff;
-  --bx-button-bg-primary-hover: var(--bx-color-orange-full);
-  --bx-button-fg-primary-hover: #ffffff;
+  --bx-button-primary-fg: var(--bx-color-white);
+  --bx-button-primary-bg: var(--bx-color-orange);
+  --bx-button-primary-bg-hover: var(--bx-color-orange-full);
+
+  --bx-button-secondary-fg: var(--bx-color-orange);
+  --bx-button-secondary-bg: var(--bx-color-white);
+  --bx-button-secondary-bg-hover: #ced4da;
+
 
   /* Fonts */
   --bx-font-primary: 'Mont', system-ui, -apple-system, 'Segoe UI', Roboto,

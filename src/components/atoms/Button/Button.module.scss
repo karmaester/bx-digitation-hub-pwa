@@ -1,0 +1,32 @@
+.button {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  padding: 1em 2em;
+  cursor: pointer;
+  font: {
+    family: var(--bx-font-secondary);
+    style: normal;
+    weight: 900;
+    size: 16px;
+  }
+  line-height: 1.2;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.buttonPrimary {
+  background-color: var(--bx-button-primary-bg);
+  color: var(--bx-button-primary-fg);
+  &:hover {
+    background-color: var(--bx-button-primary-bg-hover);
+  }
+}
+
+.buttonSecondary {
+  background-color: var(--bx-button-secondary-bg);
+  color: var(--bx-button-secondary-fg);
+  text-decoration: underline;
+  &:hover {
+    background-color: var(--bx-button-secondary-bg-hover);
+  }
+}
